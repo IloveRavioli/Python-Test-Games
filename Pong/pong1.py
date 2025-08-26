@@ -10,6 +10,14 @@ heightVar = 540
 screenFrame = pygame.display.set_mode((widthVar,heightVar))#the python game window setup
 pygame.display.set_caption("pong game #real")
 
+#game rectangles 
+BALLz = pygame.rect((widthVar/2)-15,(heightVar/2)-15,30,30)
+Player = pygame.rect(widthVar-20,heightVar-70,10,140)
+Opposition = pygame.rect(10,heightVar-70,10,140)
+#the playe squares are to be 10 pixels away from the edges so 
+#the opposition is on the left hand side whilst the player is on the right side
+pygame.rect(,,BALLz)
+
 running= True
 while running ==True:
     for event in pygame.event.get():
@@ -17,8 +25,9 @@ while running ==True:
             running=False#may change later but this is used to end the loop of the game
             pygame.quit()
             sys.exit()
+
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
+            if event.key == pygame.K_ESCAPE:#checks if the player presses escape
                 print("Escape key pressed! Exiting...")
                 running=False#may change later but this is used to end the loop of the game
                 pygame.quit()
