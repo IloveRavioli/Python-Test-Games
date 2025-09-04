@@ -4,6 +4,12 @@ import pygame,sys
 #this is the initaial setup and allat
 pygame.init()#initialises pygame functions
 clock = pygame.time.Clock()
+#
+def Rainbow():
+    colour=(A,B,C)
+    A=1
+    B=1
+    C=1
 
 def ballAnimation():
     
@@ -23,7 +29,7 @@ def ballAnimation():
 widthVar = 720
 heightVar = 540
 screenFrame = pygame.display.set_mode((widthVar,heightVar))#the python game window setup
-pygame.display.set_caption("pong game #real")
+pygame.display.set_caption("autoPong")
 
 #game rectangles 
 BALLz = pygame.Rect(widthVar/2 - 15,heightVar/2 - 15,30,30)
@@ -33,15 +39,15 @@ Opposition = pygame.Rect(10,heightVar-70,10,140)
 #the opposition is on the left hand side whilst the player is on the right side
 
 Background= pygame.Color('grey12')
-GreyTrue=(200,200,200)
+GreyTrue=(0,255,0)
 TRUERed=(255,0,0)
 
 BallX = 7
 BallY = 7
 PlayerSpeed = 0
 
-Ballposition=(BALLz.x,BALLz.y)
-OppPos=(Opposition.x,Opposition.y)
+Ballposition=BALLz.y
+OppPos=Opposition.y
 OppSpeed = 0 
 
 running= True
@@ -71,21 +77,14 @@ while running ==True:
                 PlayerSpeed += 7
             if event.key == pygame.K_DOWN:
                 PlayerSpeed -= 7 
-        
-        if Ballposition>OppPos:
-            OppSpeed -= 7
-        if Ballposition<OppPos:
-            OppSpeed +=7
-        if Ballposition==OppPos:
-            OppSpeed =0
-        
+       
     
-
     #physics
     ballAnimation()      
+
     Player.y += PlayerSpeed
 
-    Opposition.y+=OppSpeed
+    Opposition.y = BALLz.y
 
     #Draw
 
