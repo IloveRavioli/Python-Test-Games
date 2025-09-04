@@ -40,6 +40,10 @@ BallX = 7
 BallY = 7
 PlayerSpeed = 0
 
+Ballposition=(BALLz.x,BALLz.y)
+OppPos=(Opposition.x,Opposition.y)
+OppSpeed = 0 
+
 running= True
 while running ==True:
 
@@ -67,11 +71,21 @@ while running ==True:
                 PlayerSpeed += 7
             if event.key == pygame.K_DOWN:
                 PlayerSpeed -= 7 
+        
+        if Ballposition>OppPos:
+            OppSpeed -= 7
+        if Ballposition<OppPos:
+            OppSpeed +=7
+        if Ballposition==OppPos:
+            OppSpeed =0
+        
     
 
     #physics
     ballAnimation()      
     Player.y += PlayerSpeed
+
+    Opposition.y+=OppSpeed
 
     #Draw
 
