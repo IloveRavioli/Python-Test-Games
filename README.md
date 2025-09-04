@@ -1,2 +1,3 @@
 # Python Test Games
-python games i made
+python games i made, tests for future programming projects
+
