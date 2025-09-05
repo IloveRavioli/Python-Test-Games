@@ -5,7 +5,7 @@ import pygame,sys
 pygame.init()#initialises pygame functions
 clock = pygame.time.Clock()
 #
-def Rainbow():
+def Rainbow(A,B,C):
     colour=(A,B,C)
     A=1
     B=1
